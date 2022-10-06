@@ -1,3 +1,3 @@
-import LancamentoContaLegado from "./lancamento-conta-legado.json";
+import * as LancamentoContaLegado from "./lancamento-conta-legado.json";
 
 export { LancamentoContaLegado };

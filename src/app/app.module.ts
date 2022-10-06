@@ -13,6 +13,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { routes } from './routes';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './pages/components/navbar/navbar.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NavbarComponent } from './pages/components/navbar/navbar.component';
     NavbarComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes, { relativeLinkResolution: "legacy" }),

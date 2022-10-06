@@ -8,9 +8,20 @@ import { LancamentoContaLegadoResponse } from 'src/app/apis/models/responses/lan
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit { 
-  response: LancamentoContaLegadoResponse[] = Object.values(LancamentoContaLegado);
+  p: number = 1;
+  maxVisibleItems: number = 20;
+  response: LancamentoContaLegadoResponse = LancamentoContaLegado;
   constructor() {}
+  
+  key: string = 'descricao';
+  reverse: boolean = false;
+  sort(key: any): void {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 
   ngOnInit(): void {
+    console.log(this.response);
   }
+
 }

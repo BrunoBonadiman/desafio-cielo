@@ -12,40 +12,70 @@
       </div>
       <div class="row mt-4">
         <div class="col">
-            <button type="button" class="btn btn-outline-success"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Exportar Excel</button>
+          <button type="button" class="btn btn-outline-success">
+            <i class="fa fa-file-excel-o" aria-hidden="true"></i> Exportar Excel
+          </button>
         </div>
       </div>
       <div class="row mt-4">
         <div class="col-12">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Id Estabelecimento</th>
+                  <th scope="col">Id Pagamento</th>
+                  <th scope="col">CNPJ</th>
+                  <th scope="col">Data</th>
+                  <th scope="col">Tipo Pagamento</th>
+                  <th scope="col">Bandeira</th>
+                  <th scope="col">Cód. Autorização</th>
+                  <th scope="col">4 últimos dígitos do cartão</th>
+                  <th scope="col">Valor Bruto</th>
+                  <th scope="col">Valor Líquido</th>
+                  <th scope="col">Terminal</th>
+                  <th scope="col">Taxa de Administração</th>
+                  <th scope="col">Cód. Canal</th>
+                  <th scope="col">Canal</th>
+                  <th scope="col">Retirar Montante</th>
+                  <th scope="col">Qtd. mínima MDR</th>
+                  <th scope="col">Val. Imposto MDR</th>
+                  <th scope="col">Val. Taxa MDR</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="
+              let res of this.response
+                | orderBy: key:reverse
+                | paginate: { itemsPerPage: 20, currentPage: p }
+            "
+              >
+                <tr>
+                  <td>{{res.items.id}}</td>
+                  <td>{{res.items.merchantId}}</td>
+                  <td>{{res.items.paymentNode}}</td>
+                  <td>{{res.items.cnpjRoot}}</td>
+                  <td>{{res.items.date}}</td>
+                  <td>{{res.items.paymentType}}</td>
+                  <td>{{res.items.cardBrand}}</td>
+                  <td>{{res.items.authorizationCode}}</td>
+                  <td>{{res.items.truncatedCardNumber}}</td>
+                  <td>{{res.items.grossAmount}}</td>
+                  <td>{{res.items.netAmount}}</td>
+                  <td>{{res.items.terminal}}</td>
+                  <td>{{res.items.administrationFee}}</td>
+                  <td>{{res.items.channelCode}}</td>
+                  <td>{{res.items.channel}}</td>
+                  <td>{{res.items.withdrawAmount}}</td>
+                  <td>{{res.items.minimumMDRAmmount}}</td>
+                  <td>{{res.items.mdrTaxAmount}}</td>
+                  <td>{{res.items.mdrFeeAmount}}</td>
+                  <td>{{res.items.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
